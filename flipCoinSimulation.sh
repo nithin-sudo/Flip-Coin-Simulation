@@ -33,3 +33,20 @@ do
 done
 echo "head won $heads times and tails won $tails times"
 echo "total no.of flips are $flips"
+echo "By again flipping to make difference >2"
+        while [ 1 ]
+        do
+                face=$((RANDOM%2))
+                if [ $face -eq 1 ]
+                then
+                        ((++HEAD))
+                else
+                        ((++TAIL))
+                fi
+                dif1=$(($HEAD-$TAIL))
+                dif2=$(($TAIL-$HEAD))
+                if [[ $dif1 -gt 2 || $dif2 -gt 2 ]]
+                then
+                        break;
+                fi
+        done
